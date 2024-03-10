@@ -1,0 +1,202 @@
+
+#include<ctime>
+#include <iostream>
+using namespace std;
+
+
+void PrintM(int* massiv, int size) {
+	for (int i = 0; i < size; ++i) {
+		cout << massiv[i] << " ";
+	}
+	cout << endl;
+}
+
+int main()
+{
+	srand(time(0));
+	//const int size = 3;
+	//int ar[size]; 
+	//for (int i = 0; i < size; i++)
+	//{
+	//	cout << "Enter element\n";
+	//	cin >> ar[i];
+	//}
+	//cout << "\n\n";
+	//for (int i = 0; i < size; i++)
+	//{
+	//	cout << ar[i] << "\n";
+	//}
+
+
+
+
+	//const int size = 5;
+	//int ar[size] = { 23,11,9,18,25 };
+	//int max = ar[0]; 
+	//int min = ar[0]; 
+	//for (int i = 1; i < size; i++)
+	//{
+	//	if (min > ar[i])
+	//		min = ar[i];
+
+	//	if (max < ar[i])
+	//		max = ar[i];
+	//}
+	//cout << "Max = " << max << "\n\n";
+	//cout << "Min = " << min << "\n\n";
+
+
+	//const int size = 10;
+	//int m[size] = { 9, 6, 7, 10, 14, 16, 5, 11, 4, 8 };
+
+	//int k = 5;
+	//for (int i = k; i < size - 1; i++)
+	//{
+	//	m[i] = m[i + 1];
+	//}
+	//m[size - 1] = 0;
+
+	//for (int i = 0; i < size; i++)
+	//{
+	//	cout << m[i] << " ";
+	//}
+	//cout << endl;
+
+
+	/*const int size = 11;
+	int m[size] = { 3, -12, 5, 14, 27, -6, 1, -34, 10, -15, 0 };
+
+	int b = 100;
+	int k = 4;
+	for (int i = size - 1; i > k; i--) {
+		m[i + 1] = m[i];
+	}
+	m[k + 1] = b; 
+
+	PrintM(m,size);*/
+
+
+
+	//У масиві зберігається інформація про кількість мешканців кожної квартири п'ятиповерхового будинку (4 під'їзди, на кожному поверсі по 2 квартири).
+
+
+
+
+
+	/*const int size = 40;
+
+	int flats[size]={ 0 };
+
+	for (int i = 0; i < size; ++i) {
+		flats[i] = rand() % 6 +1;
+	}
+	PrintM(flats, size);
+
+	int flat = 0;
+	cout << "enter flat-> " << endl; cin >> flat;
+	flat--;
+	if (flat % 2 == 0) {
+		cout << " in flat number " << flat+1 << " live " << flats[flat] << " people "<<endl;
+		cout << "And their neighbors live ";
+		cout << " in flat number " << flat+2 << " live " << flats[flat+1] << " people "<<endl;
+	}
+	else {
+		cout << " in flat number " << flat+1 << " live " << flats[flat] << " people " << endl;
+		cout << "And their neighbors live ";
+		cout << " in flat number " << flat << " live " << flats[flat-1] << " people " << endl;
+
+	}
+	
+	int sumPeople[4] = {0};
+	int counter = 0;
+	for (int i = 0; i < 4; ++i) {
+		for (int j = 0; j < 10; j++) {
+			sumPeople[i] += flats[i * 10 + j];
+
+		}
+		cout << sumPeople[i] << " people live in the " << i + 1<< "st entrance " << endl;
+	}
+
+	for (int i = 0; i < size; ++i) {
+		if (flats[i] >= 5) {
+			cout << "The large family live in the " << i + 1 << " flat" << endl;
+		}
+	}*/
+
+
+
+/*	У масиві зберігається інформація про рік народження кожного з 30 осіб.Визначити порядковий номер і вік найстаршого.Пошук організувати за віком людини.При визначенні віку враховувати тільки рік народження(місяць і день не враховувати).*/
+
+
+		//const int size = 30;
+
+	/*	int birthday[size]={ 0 };
+
+		for (int i = 0; i < size; ++i) {
+			birthday[i] = rand() %50 + 1950;;
+		}
+
+		PrintM(birthday, size);
+
+		int minAge = birthday[0];
+		int serialNumber = 0;
+		for (int i = 1; i < size; ++i) {
+			if (minAge > birthday[i]) {
+				minAge = birthday[i];
+				serialNumber = i + 1;
+			}
+		}
+		cout << "The oldest man has " << serialNumber <<" number" << endl;
+		cout << "Age: " << 2024 - minAge;*/
+
+
+	/*У масиві записано інформацію про зріст кожного з 25 учнів класу.Один з учнів із класу вибув.Отримати оновлений масив у тому самому порядку даними про зріст учнів, що залишилися.Користувач задає зріст вибулого учня.*/
+
+
+	/*const int size = 25;
+	int height[size] = {0};
+
+	for (int i = 0; i < size; ++i) {
+		height[i] = rand() % 50 + 1950;;
+	}
+
+	int k = 0;
+	cout << "Enter student: " << endl; cin >> k;
+	for (int i = 0; i < size; ++i) {
+			height[i] = rand() % 50 + 145;
+		}
+	PrintM(height,size);
+
+	for (int i = k; i < size - 1; i++)
+	{
+		height[i] = height[i + 1];
+	}
+	height[size - 1] = 0;
+
+
+	PrintM(height, size);*/
+
+	//Дано масив цілих чисел A.Переписати його непарні елементи в інший масив такого самого розміру :
+
+const int size = 9;
+int spis[size] = { 2,4,1,7,5,6,7,8,2 };
+
+int spis1[size] = { 0 };
+
+int spis2[size] = { 0 };
+int counter = 0;
+
+for (int i = 0; i < size; i++) {
+	if (spis[i] % 2 == 1) {
+		spis1[i] = spis[i];
+		spis2[counter] = spis[i];
+		counter++;
+	}
+}
+PrintM(spis, size);
+PrintM(spis1, size);
+PrintM(spis2, size);
+
+
+}
+
