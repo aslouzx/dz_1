@@ -1,0 +1,248 @@
+
+#include <iostream>
+#include <cstdlib>
+#include<ctime>
+#include<cmath>
+
+
+
+using namespace std;
+int Max(int a, int b) {
+	return a > b ? a : b;
+}
+
+int Min(int a, int b) {
+	return a < b ? a : b;
+}
+
+
+void SomeFunc() {
+	/*
+	Змінна створюється при першому виклику функції
+	Після виходу з функції вона не знищується
+	і зберігає своє значення
+	*/
+	static int a = 0;
+	a++;
+	cout << a << endl;
+}
+
+template <class T>
+void quickSortR(T a[], long N) {
+	// На вході — масив a[], 
+	 // a[N] — його останній елемент.
+	 // поставити покажчики на вихідні місця
+	long i = 0, j = N;
+	T temp, p;
+	p = a[N / 2]; // центральний елемент
+	// процедура поділу 
+	do {
+		while (a[i] < p) i++;
+		while (a[j] > p) j--;
+		if (i <= j) {
+			temp = a[i];
+			a[i] = a[j];
+			a[j] = temp;
+			i++;
+			j--;
+		}
+	} while (i <= j);
+	/* рекурсивні виклики, якщо є що сортувати */
+	if (j > 0) quickSortR(a, j);
+	if (N > i) quickSortR(a + i, N - i);
+}
+
+
+
+double Power2(double A, int N = 2) {
+	if (N == 0) return 1;
+
+	else if (N > 0) {
+		int sum = 1;
+		for (int i = 0; i < N; i++)
+		{
+			sum *= A;
+		}
+		return sum;
+	}
+
+	else if (N < 0) {
+		double sum2 = 1;
+		for (int i = 0; i < abs(N); i++) //-5
+		{
+			sum2 *= A;
+		}
+		return 1 / sum2;
+	}
+}
+
+
+
+void calcSecondsToHMS(int seconds) {
+	int hours, minutes, remainingSeconds;
+
+	hours = seconds / 3600;
+	remainingSeconds = seconds % 3600;
+	minutes = remainingSeconds / 60;
+	remainingSeconds %= 60;
+
+	cout << "Годин: " << hours << ", Хвилин: " << minutes << ", Секунд: " << remainingSeconds << endl;
+}
+
+
+
+
+int modAB(int a, int b) {
+	if (a - b < 0)  return a;
+	modAB(a - b, b);
+}
+
+
+void decToOCT(int n) {
+	if (n == 0) return;
+	decToOCT(n / 8);
+	cout << n % 8;
+}
+
+void decToHEX(int n) {
+	if (n == 0) return;
+	decToHEX(n / 16);
+	if (n%16 == 10) {
+		cout << "A";
+	}
+	else if (n % 16 == 11) {
+		cout << "B";
+	}
+	else if (n % 16 == 12) {
+		cout << "C";
+	}
+	else if (n % 16 == 13) {
+		cout << "D";
+	}
+	else if (n % 16 == 14) {
+		cout << "E";
+	}
+	else if (n % 16 == 15) {
+		cout << "F";
+	}
+	else {
+		cout << n % 16;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+int main() {
+	setlocale(LC_ALL, "");
+	srand(time(0));
+
+
+	//--------------------------------------------------
+	   // // Значення, яке повернув 
+	   //// return, можна записати в змінну
+	   // int result = Max(10, 30);
+	   // cout << "Maximum is: " << result << endl;
+	   // // Значення, яке повернув
+	   // // return, можна відразу вивести на екран
+	   // cout << "Maximum is: " << Max(42, 2);
+	   // return 0;
+
+	//-------------------------------------------------
+	//// // Значення, яке повернув return,
+	// // можна записати в змінну
+	//    int result = Max(10, 30);
+	//    cout << "Maximum is: " << result << endl;
+	//    // Значення, яке повернув return, 
+	//    // можна відразу вивести на екран
+	//    cout << "Minimum is: " << Min(10, 30);
+	//    return 0;
+	////
+	////-----------------------------------------------
+	// 
+	// 
+	// // 1
+	//    SomeFunc();
+	//    // 2
+	//    SomeFunc();
+	//    // 3
+	//    SomeFunc();
+	//    return 0;
+	//// 
+	//------------------------------------------------- 
+	// 
+	  //srand(time(NULL));
+	  //  const long SIZE = 10;
+	  //  int ar[SIZE];
+	  //  // до сортування 
+	  //  for (int i = 0; i < SIZE; i++) {
+	  //      ar[i] = rand() % 100;
+	  //      cout << ar[i] << "\t";
+	  //  }
+	  //  cout << "\n\n";
+	  //  quickSortR(ar, SIZE - 1);
+	  //  // після сортування 
+	  //  for (int i = 0; i < SIZE; i++) {
+	  //     
+	  //          cout << ar[i] << "\t";
+	  //  }
+	  //  cout << "\n\n";
+	  //  return 0;
+	// 
+	//------------------------------------------------- 
+	//------------------------------------------------- 
+	//    /* 
+	//      2.	Описати функцію Power2(A, N) дійсного типу, що знаходить величину AN за такими формулами:
+	//    a.A0 = 1;
+	//    b.AN = A * A*...*A(N співмножників), якщо N > 0;
+	//    c.A - N = 1 / (A * A*...*A) (| N | співмножників), якщо N < 0.
+	//        double Power2(double A, int N = 2);
+	//        За допомогою цієї функції знайти AK, AL, AM, якщо дано числа A, K, L, M.
+	//    */
+	//
+	////cout << Power2(3, -5)<<endl;
+	////cout << Power2(5, 5) << endl;
+	////cout << Power2(5, 0) << endl;
+	//
+	//  
+	//
+	//
+	//
+	//
+	//
+	//   /*3.	Написати програму, у якій користувач задає кількість секунд.
+	//   Це значення передається в процедуру, яка переводить секунди у відповідну
+	//   кількість годин, хвилин, секунд і виводить отримані значення на екран.
+	//   Наприклад, 7515 секунд - це 2 години 5 хвилин 15 секунд.
+	//        void calcSecondsToHMS(int seconds);
+	//*/
+	//
+	////
+	//int inputSeconds;
+	//
+	//cout << "Введіть кількість секунд: ";
+	//cin >> inputSeconds;
+	//
+	//calcSecondsToHMS(inputSeconds);
+	////
+	// 
+	//
+	//⦁	Напишіть рекурсивну функцію(підпрограму), яка за заданими A і B обчислює залишок від цілочисельного ділення A% B.
+	//    int modAB(int a, int b);
+
+	//cout << modAB(105, 10) << endl;
+
+   /*	Користувач вводить число в десятковій системі числення.Перевести його у вісімнадцятирічну та шістнадцятирічну(не забуваємо замінювати числа на A(10) B(11) C(12) D(13) E(14) F(15) у 16 - ричній системі) системи*/
+
+
+
+ //decToOCT(179);
+	decToHEX(505);
+}
